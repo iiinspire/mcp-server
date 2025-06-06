@@ -25,15 +25,15 @@ import java.util.zip.ZipOutputStream;
 
 @Component
 @Slf4j
-@RequiredArgsConstructor
 public class CodeDeploymentTool {
 
-    private final RestTemplate restTemplate;
+    @Autowired
+    private  RestTemplate restTemplate;
 
-    @Value("${4everland.token}")
+    @Value("${foreverland.token}")
     private String foreverLandToken;
 
-    @Value("${4everland.api.url:https://cli-api.4everland.org}")
+    @Value("${foreverland.api.url}")
     private String apiBaseUrl;
 
     @Tool(name = "deploy_code", description = "deploy code to 4everland")
