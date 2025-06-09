@@ -129,7 +129,8 @@ public class CodeDeploymentTool {
         if (responseBody == null) {
             throw new RuntimeException("Deploy response is null");
         }
-        return (String) responseBody.get("content");
+        Map<String,Object> content = (Map<String, Object>) responseBody.get("content");
+        return (String) content.get("domainList");
     }
 
     private HttpHeaders createHeaders() {
