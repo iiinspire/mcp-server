@@ -130,7 +130,8 @@ public class CodeDeploymentTool {
             throw new RuntimeException("Deploy response is null");
         }
         Map<String,Object> content = (Map<String, Object>) responseBody.get("content");
-        return (String) content.get("domainList");
+        ArrayList<String> domainList = (ArrayList<String>) content.get("domainList");
+        return domainList.toString();
     }
 
     private HttpHeaders createHeaders() {
